@@ -1,0 +1,38 @@
+namespace BattagliaNavaleEventi
+{
+    public partial class Form1 : Form
+    {
+        public Form1()
+        {
+            InitializeComponent();
+        }
+
+        private void btn_GiocatoreSingolo_Click(object sender, EventArgs e)
+        {
+            LanciaGioco(false);
+        }
+
+        private void btn_DueGiocatori_Click(object sender, EventArgs e)
+        {
+            LanciaGioco(true);
+        }
+
+        private void LanciaGioco(bool multiplayer)
+        {
+            Hide();
+            try
+            {
+                using (Game form = new Game(multiplayer))
+                {
+                    DialogResult dr = form.ShowDialog();
+                    if (dr != DialogResult.Abort)
+                        Show();
+                }
+            }
+            catch
+            {
+                MessageBox.Show("Errore sconosciuto", "Errore", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
+    }
+}
