@@ -39,7 +39,11 @@ namespace BattagliaNavaleEventi
             if (multiplayer)
                 GenerateGrid(tbl_grid2, 1);
             else
+            {
                 tbl_grid2.Visible = false;
+                lbl_shipsSunk2.Visible = false;
+                lbl_NumAttemps2.Visible = false;
+            }
 
             ResetPlacement();
 
@@ -247,7 +251,7 @@ namespace BattagliaNavaleEventi
         private void updateShipsSunk(int n)
         {
             const int totNumShip = 6;
-            lbl_shipsSunk.Text = "Navi affondate: " + n;
+            (CurrentPlayer == 0 ? lbl_shipsSunk1 : lbl_shipsSunk2).Text = "Navi affondate: " + n;
             if (n == totNumShip)
             {
                 ShowVictory();
@@ -257,7 +261,10 @@ namespace BattagliaNavaleEventi
 
         private void updateAtteps()
         {
-            lbl_numAttemps.Text = $"Giocatore: {CurrentPlayer}\nNumero tentativi: {(CurrentPlayer == 0 ? numAttemps1 : numAttemps2)}";
+            if (CurrentPlayer == 0)
+                lbl_numAttemps1.Text = $"Giocatore: 1\nNumero tentativi: {numAttemps1}";
+            else
+                lbl_NumAttemps2.Text = $"Giocatore: 2\nNumero tentativi: {numAttemps2}";
         }
 
 
@@ -446,7 +453,11 @@ namespace BattagliaNavaleEventi
                 { // terminati piazzamenti
                     SetShipButtonsVisible(false);
                     txt_Log.Visible = true;
+                    updateAtteps();
+                    updateShipsSunk(0);
                     CurrentPlayer = 0;
+                    updateAtteps();
+                    updateShipsSunk(0);
                     playing = true;
                     SetGridEnabledPlaying(0, true);
                     ShowColors(0);
@@ -472,8 +483,11 @@ namespace BattagliaNavaleEventi
                         GridPlayer[p][y, x] = 0;
                         ShipsPlayer[p][y, x] = null;
                         var btn = ButtonsPlayer[p][y, x];
-                        btn.BackColor = Color.LightBlue;
-                        btn.Enabled = (p == 0) || multiplayerMode;
+                        if (btn != null)
+                        {
+                            btn.BackColor = Color.LightBlue;
+                            btn.Enabled = (p == 0) || multiplayerMode;
+                        }
                     }
                 shipCountsPlayer[p] = shipCountsTemplate.ToDictionary(kv => kv.Key, kv => kv.Value);
             }

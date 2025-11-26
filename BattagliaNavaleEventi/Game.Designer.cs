@@ -28,8 +28,8 @@
         /// </summary>
         private void InitializeComponent()
         {
-            lbl_numAttemps = new Label();
-            lbl_shipsSunk = new Label();
+            lbl_numAttemps1 = new Label();
+            lbl_shipsSunk1 = new Label();
             tbl_grid = new TableLayoutPanel();
             btn_PosNave4 = new Button();
             btn_PosNave3 = new Button();
@@ -38,25 +38,27 @@
             tbl_grid2 = new TableLayoutPanel();
             btn_ResetPlacement = new Button();
             txt_Log = new TextBox();
+            lbl_NumAttemps2 = new Label();
+            lbl_shipsSunk2 = new Label();
             SuspendLayout();
             // 
-            // lbl_numAttemps
+            // lbl_numAttemps1
             // 
-            lbl_numAttemps.Font = new Font("Segoe UI", 14.25F, FontStyle.Regular, GraphicsUnit.Point);
-            lbl_numAttemps.Location = new Point(561, 11);
-            lbl_numAttemps.Name = "lbl_numAttemps";
-            lbl_numAttemps.Size = new Size(256, 68);
-            lbl_numAttemps.TabIndex = 6;
-            lbl_numAttemps.TextAlign = ContentAlignment.MiddleCenter;
+            lbl_numAttemps1.Font = new Font("Segoe UI", 11.25F, FontStyle.Regular, GraphicsUnit.Point);
+            lbl_numAttemps1.Location = new Point(561, 11);
+            lbl_numAttemps1.Name = "lbl_numAttemps1";
+            lbl_numAttemps1.Size = new Size(134, 68);
+            lbl_numAttemps1.TabIndex = 6;
+            lbl_numAttemps1.TextAlign = ContentAlignment.MiddleCenter;
             // 
-            // lbl_shipsSunk
+            // lbl_shipsSunk1
             // 
-            lbl_shipsSunk.Font = new Font("Segoe UI", 14.25F, FontStyle.Regular, GraphicsUnit.Point);
-            lbl_shipsSunk.Location = new Point(564, 79);
-            lbl_shipsSunk.Name = "lbl_shipsSunk";
-            lbl_shipsSunk.Size = new Size(256, 40);
-            lbl_shipsSunk.TabIndex = 5;
-            lbl_shipsSunk.TextAlign = ContentAlignment.MiddleCenter;
+            lbl_shipsSunk1.Font = new Font("Segoe UI", 11.25F, FontStyle.Regular, GraphicsUnit.Point);
+            lbl_shipsSunk1.Location = new Point(564, 79);
+            lbl_shipsSunk1.Name = "lbl_shipsSunk1";
+            lbl_shipsSunk1.Size = new Size(134, 40);
+            lbl_shipsSunk1.TabIndex = 5;
+            lbl_shipsSunk1.TextAlign = ContentAlignment.MiddleCenter;
             // 
             // tbl_grid
             // 
@@ -177,11 +179,31 @@
             txt_Log.TabIndex = 14;
             txt_Log.Visible = false;
             // 
+            // lbl_NumAttemps2
+            // 
+            lbl_NumAttemps2.Font = new Font("Segoe UI", 11.25F, FontStyle.Regular, GraphicsUnit.Point);
+            lbl_NumAttemps2.Location = new Point(701, 11);
+            lbl_NumAttemps2.Name = "lbl_NumAttemps2";
+            lbl_NumAttemps2.Size = new Size(134, 68);
+            lbl_NumAttemps2.TabIndex = 16;
+            lbl_NumAttemps2.TextAlign = ContentAlignment.MiddleCenter;
+            // 
+            // lbl_shipsSunk2
+            // 
+            lbl_shipsSunk2.Font = new Font("Segoe UI", 11.25F, FontStyle.Regular, GraphicsUnit.Point);
+            lbl_shipsSunk2.Location = new Point(704, 79);
+            lbl_shipsSunk2.Name = "lbl_shipsSunk2";
+            lbl_shipsSunk2.Size = new Size(134, 40);
+            lbl_shipsSunk2.TabIndex = 15;
+            lbl_shipsSunk2.TextAlign = ContentAlignment.MiddleCenter;
+            // 
             // Game
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(1382, 476);
+            Controls.Add(lbl_NumAttemps2);
+            Controls.Add(lbl_shipsSunk2);
             Controls.Add(txt_Log);
             Controls.Add(btn_ResetPlacement);
             Controls.Add(tbl_grid2);
@@ -189,8 +211,8 @@
             Controls.Add(btn_PosNave2);
             Controls.Add(btn_PosNave3);
             Controls.Add(btn_PosNave4);
-            Controls.Add(lbl_numAttemps);
-            Controls.Add(lbl_shipsSunk);
+            Controls.Add(lbl_numAttemps1);
+            Controls.Add(lbl_shipsSunk1);
             Controls.Add(tbl_grid);
             Name = "Game";
             Text = "Game";
@@ -199,8 +221,8 @@
         }
 
         #endregion
-        private Label lbl_numAttemps;
-        private Label lbl_shipsSunk;
+        private Label lbl_numAttemps1;
+        private Label lbl_shipsSunk1;
         private TableLayoutPanel tbl_grid;
         private Button btn_PosNave4;
         private Button btn_PosNave3;
@@ -209,5 +231,7 @@
         private TableLayoutPanel tbl_grid2;
         private Button btn_ResetPlacement;
         private TextBox txt_Log;
+        private Label lbl_NumAttemps2;
+        private Label lbl_shipsSunk2;
     }
 }
